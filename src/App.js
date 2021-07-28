@@ -18,7 +18,7 @@ function App() {
           </ul>
         </nav>
         <Switch>
-          <Route path='/offers'>
+          <Route path='/offers/:id'>
             <Offer />
           </Route>
           <Route path='/'>

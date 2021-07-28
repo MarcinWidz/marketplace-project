@@ -1,18 +1,6 @@
-import Header from "../Components/Header";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import Offers from "../Components/Offers";
 
-function Home() {
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get();
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-  });
-
+function Home({ data, setData }) {
   return (
     <div>
       <div className='hero'>
@@ -21,6 +9,7 @@ function Home() {
             <h1>Prêts à faire du tri dans vos placards?</h1>
             <button>Commencer à Vendre</button>
           </div>
+          <Offers data={data} setData={setData} />
         </div>
       </div>
     </div>

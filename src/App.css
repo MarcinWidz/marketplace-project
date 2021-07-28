@@ -1,1 +1,83 @@
-/* Other rules */
+/* Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eaedef;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li {
+  list-style-type: none;
+  margin: 20px;
+}
+
+.nav-div {
+  width: 100vw;
+  background-color: white;
+  height: 100px;
+  display: flex;
+}
+
+.nav {
+  width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 20px;
+  height: 35px;
+  background-color: #f5f6f7;
+  border: none;
+  outline: none;
+}
+
+.hero {
+  background-image: url("./assets/banner_tablets_up-afe3d19776592a72f165c1bb93fd02c5528250a8c670ecc1656654323f9d4856.jpg");
+  width: 100vw;
+  height: 470px;
+  background-size: cover;
+  background-position: center;
+}
+
+.center {
+  width: 1250px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cta-div {
+  width: 400px;
+  height: 260px;
+  background-color: white;
+  left: 20px;
+  top: 160px;
+  position: absolute;
+  border-radius: 3px;
+}
+
+.cta-div {
+  padding: 20px;
+}
+
+.cta-div h1 {
+  margin-bottom: 20px;
+}
+
+.cta-div button {
+  background-color: #0aaeb7;
+  color: white;
+  padding: 15px;
+  border: none;
+  font-size: 19px;
+  border-radius: 3px;
+}

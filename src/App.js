@@ -1,33 +1,25 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Offer from "./Containters/Offer";
 import Home from "./Containters/Home";
+import Header from "./Components/Header";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link>Home</Link>
-            </li>
-            <li>
-              <Link>Offer</Link>
-            </li>
-          </ul>
-        </nav>
+        <Header />
         <Switch>
-          <Route path='/offers/:id'>
+          <Route path='/offer'>
             <Offer />
           </Route>
           <Route path='/'>
             <Home />
           </Route>
         </Switch>
+
+        <Link to={"/offer"}></Link>
       </div>
     </Router>
   );
 }
-
-export default App;

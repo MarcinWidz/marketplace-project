@@ -10,12 +10,12 @@ function Header() {
           </Link>
         </li>
         <input className='search-bar' type='text' />
-        <Link to={"../Containters/Signup.js"}>
+        {userToken?<button>Se désinscrire</button>:(<Link to={"../Containters/Signup.js"}>
           <li>S'inscrire</li>
         </Link>
         <Link to={"../Containters/Login.js"}>
           <li>Se Connecter</li>
-        </Link>
+        </Link>)}
         <li>Vends tes Articles</li>
       </ul>
     </div>

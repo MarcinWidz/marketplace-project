@@ -67,7 +67,6 @@ function Signup() {
         </label>
         <input onChange={handlePassword} value={password} type='password' />
         <input type='submit' />
-        <button>Test</button>
       </form>
     </div>
   );

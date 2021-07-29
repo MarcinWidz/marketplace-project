@@ -9,7 +9,7 @@ import Signup from "./Containters/Signup";
 import Cookies from "js-cookie";
 
 export default function App() {
-  const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  const [setUserToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
     Cookies.set("userToken", token);

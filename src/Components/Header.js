@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 function Header() {
   return (
@@ -10,8 +10,12 @@ function Header() {
           </Link>
         </li>
         <input className='search-bar' type='text' />
-        <li>S'inscrire</li>
-        <li>Se Connecter</li>
+        <Link to={"../Containters/Signup.js"}>
+          <li>S'inscrire</li>
+        </Link>
+        <Link to={"../Containters/Login.js"}>
+          <li>Se Connecter</li>
+        </Link>
         <li>Vends tes Articles</li>
       </ul>
     </div>

@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-function Signup() {
+function Signup({ setUser }) {
   const history = useHistory();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [email, setEmail] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [userExists, setUserExists] = useState("");
 
   const handleUsername = (event) => {
     const value = event.target.value;
@@ -36,38 +36,49 @@ function Signup() {
       );
       const token = response.data.token;
 
-      Cookies.set("token", token, { expires: 666 });
+      setUser(token);
 
       history.push("/");
 
       console.log(response);
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response);
+      if (error.response.status === 409) {
+        setUserExists(
+          `Cet utilisateur existe déjà. Pour te connecter clique ${(
+            <Link to={"/user/login"}>
+              <span>ici</span>
+            </Link>
+          )} `
+        );
+      }
     }
   };
 
   return (
     <div>
       <form action='submit' onSubmit={handleSubmit}>
-        <label htmlFor='Username' placeholder='username'>
-          Username:
-        </label>
-        <input onChange={handleUsername} value={username} type='text' />
+        <label htmlFor='Username'>Username:</label>
+        <input
+          onChange={handleUsername}
+          value={username}
+          placeholder='username'
+          type='text'
+        />
         <label htmlFor='email'>E-mail:</label>
         <input
           onChange={handleEmail}
           value={email}
-          type='text'
+          type='email'
           placeholder='jondoe@my-email.com'
         />
-        {/* <label htmlFor='phone'>Phone:</label>
-        <input type='number' /> */}
         <label htmlFor='password' placeholder='password'>
           Password:
         </label>
         <input onChange={handlePassword} value={password} type='password' />
         <input type='submit' />
       </form>
+      <p style={{ color: "red" }}>{userExists}</p>
     </div>
   );
 }

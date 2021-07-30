@@ -9,16 +9,21 @@ import Signup from "./Containters/Signup";
 import Cookies from "js-cookie";
 
 export default function App() {
-  const [setUserToken] = useState(Cookies.get("userToken") || null);
+  const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
-    Cookies.set("userToken", token);
-    setUserToken(token);
+    if (token) {
+      Cookies.set("userToken", token);
+      setUserToken(token);
+    } else {
+      Cookies.remove("userToken");
+      setUserToken(null);
+    }
   };
 
   return (
     <Router>
-      <Header />
+      <Header userToken={userToken} setUser={setUser} />
       <Switch>
         <Route path='/offer/:id'>
           <Offer />
@@ -27,10 +32,10 @@ export default function App() {
           <Home />
         </Route>
         <Route path='/user/login'>
-          <Login />
+          <Login setUser={setUser} />
         </Route>
-        <Route>
-          <Signup path='/user/signup' setUser={setUser} />
+        <Route path='/user/signup'>
+          <Signup setUser={setUser} />
         </Route>
       </Switch>
     </Router>

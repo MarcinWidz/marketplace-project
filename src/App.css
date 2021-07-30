@@ -52,7 +52,6 @@ li {
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  z-index: -100;
 }
 
 .cta-div {
@@ -85,7 +84,6 @@ li {
 .offers-div {
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
 }
 
 .offer {

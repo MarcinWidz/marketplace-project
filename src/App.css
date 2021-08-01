@@ -1,3 +1,5 @@
+/* Global Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,36 +9,6 @@
 body {
   background-color: #eaedef;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-li {
-  list-style-type: none;
-  margin: 20px;
-}
-
-.nav-div {
-  width: 100vw;
-  background-color: white;
-  height: 100px;
-  display: flex;
-}
-
-.nav {
-  width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-}
-
-.search-bar {
-  flex: 1;
-  margin: 0 20px;
-  height: 35px;
-  background-color: #f5f6f7;
-  border: none;
-  outline: none;
 }
 
 .hero {
@@ -49,7 +21,6 @@ li {
 
 .center {
   width: 1250px;
-  height: 100vh;
   margin: 0 auto;
   position: relative;
 }
@@ -81,9 +52,8 @@ li {
   border-radius: 3px;
 }
 
-.offers-div {
-  display: flex;
-  justify-content: space-between;
+.cta-div button:hover {
+  cursor: pointer;
 }
 
 .offer {

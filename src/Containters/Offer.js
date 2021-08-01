@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./Offer.css";
 
 const Offer = () => {
   const { id } = useParams();
@@ -27,22 +28,27 @@ const Offer = () => {
   return isLoading ? (
     <p>En cours de chargement...</p>
   ) : (
-    <div>
-      <img src={data.product_image.secure_url} alt={data.product_name} />
-      <p>{data.product_price}</p>
-      <ul>
-        {data.product_details.map((elem, index) => {
-          const keys = Object.keys(elem);
-
-          return (
-            <li key={index}>
-              <span>{keys[0]}</span>
-              <span> : </span>
-              <span>{elem[keys[0]]}</span>
-            </li>
-          );
-        })}
-      </ul>
+    <div className='clicked-offer'>
+      <img
+        className='clicked-img'
+        src={data.product_image.secure_url}
+        alt={data.product_name}
+      />
+      <div className='clicked-details-div'>
+        <p>{data.product_price}</p>
+        <ul>
+          {data.product_details.map((elem, index) => {
+            const keys = Object.keys(elem);
+            return (
+              <li key={index}>
+                <span>{keys[0]}</span>
+                <span> : </span>
+                <span>{elem[keys[0]]}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };

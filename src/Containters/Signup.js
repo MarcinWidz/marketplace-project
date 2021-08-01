@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import "./Signup.css";
 
 function Signup({ setUser }) {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [userExists, setUserExists] = useState("");
+  const [userExists, setUserExists] = useState(false);
 
   const handleUsername = (event) => {
     const value = event.target.value;
@@ -44,20 +45,17 @@ function Signup({ setUser }) {
     } catch (error) {
       console.log(error.response);
       if (error.response.status === 409) {
-        setUserExists(
-          `Cet utilisateur existe déjà. Pour te connecter clique ${(
-            <Link to={"/user/login"}>
-              <span>ici</span>
-            </Link>
-          )} `
-        );
+        setUserExists(true);
       }
     }
   };
 
   return (
-    <div>
-      <form action='submit' onSubmit={handleSubmit}>
+    <div className='signup-div'>
+      <form className='signup-form' action='submit' onSubmit={handleSubmit}>
+        <label className='signup-title' htmlFor=''>
+          S'inscrire
+        </label>
         <label htmlFor='Username'>Username:</label>
         <input
           onChange={handleUsername}
@@ -76,9 +74,21 @@ function Signup({ setUser }) {
           Password:
         </label>
         <input onChange={handlePassword} value={password} type='password' />
-        <input type='submit' />
+        <input className='submit-btn' value="S'inscrire" type='submit' />
+        <Link to={"/user/login"}>
+          <p className='signup-footnote'>Tu as déjà un compte? Connecte-toi!</p>
+        </Link>
       </form>
-      <p style={{ color: "red" }}>{userExists}</p>
+      {userExists && (
+        <p style={{ color: "red" }}>
+          <p style={{ display: "inline" }}>
+            Cet utilisateur existe déjà. Pour te connecter clique
+          </p>
+          <Link to={"/user/login"}>
+            <span> ici</span>
+          </Link>
+        </p>
+      )}
     </div>
   );
 }

@@ -7,9 +7,20 @@ import Header from "./Components/Header";
 import Login from "./Containters/Login";
 import Signup from "./Containters/Signup";
 import Cookies from "js-cookie";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Footer from "./Components/Footer";
+library.add(faSearch);
 
 export default function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  const [data, setData] = useState();
+  const [values, setValues] = useState([0, 50]);
+  const [priceMin, setPriceMin] = useState(0);
+  const [priceMax, setPriceMax] = useState(250);
+  const [title, setTitle] = useState("");
+  const [sort, setSort] = useState("");
+  const [search, setSearch] = useState("");
 
   const setUser = (token) => {
     if (token) {
@@ -23,13 +34,30 @@ export default function App() {
 
   return (
     <Router>
-      <Header userToken={userToken} setUser={setUser} />
+      <Header
+        userToken={userToken}
+        setUser={setUser}
+        data={data}
+        setData={setData}
+        values={values}
+        setValues={setValues}
+        priceMin={priceMin}
+        setPriceMin={setPriceMin}
+        setPriceMax={setPriceMax}
+        priceMax={priceMax}
+        setTitle={setTitle}
+        title={title}
+        sort={sort}
+        setSort={setSort}
+        search={search}
+        setSearch={setSearch}
+      />
       <Switch>
         <Route path='/offer/:id'>
           <Offer />
         </Route>
         <Route exact path='/'>
-          <Home />
+          <Home data={data} setData={setData} />
         </Route>
         <Route path='/user/login'>
           <Login setUser={setUser} />
@@ -38,6 +66,7 @@ export default function App() {
           <Signup setUser={setUser} />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

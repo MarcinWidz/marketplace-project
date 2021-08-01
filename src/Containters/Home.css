@@ -1,0 +1,30 @@
+.offers-div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-details-div {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.left-column-details {
+  color: #2cb1ba;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-photo img {
+  width: 240px;
+  height: 370px;
+  object-fit: cover;
+  object-position: center;
+}

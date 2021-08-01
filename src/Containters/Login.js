@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
+import "./Login.css";
 
 function Login({ setUser }) {
   const [email, setEmail] = useState("");
@@ -30,8 +31,6 @@ function Login({ setUser }) {
       const token = response.data.token;
       setUser(token);
       token && history.push("/");
-
-      console.log(response);
     } catch (error) {
       console.log(error.response);
       if (error.response.status === 400) {
@@ -49,8 +48,9 @@ function Login({ setUser }) {
   };
 
   return (
-    <div>
-      <form action='submit' onSubmit={handleSubmit}>
+    <div className='login-div'>
+      <form className='login-form' action='submit' onSubmit={handleSubmit}>
+        <p className='login-title'>Connecte-toi</p>
         <label htmlFor='email'>Email:</label>
         <input
           placeholder='jondoe@youremail.com'
@@ -61,12 +61,14 @@ function Login({ setUser }) {
           Password:
         </label>
         <input onChange={handlePassword} type='password' />
-        <input type='submit' />
+        <input className='login-btn' type='submit' />
+        <Link to={"/user/signup"}>
+          <p className='login-footnote'>Pas encore de compte? Inscris-toi!</p>
+        </Link>
       </form>
-      <Link to={"/user/signup"}>
-        <p>Pas encore de compte? Inscris-toi!</p>
-      </Link>
-      <p style={{ color: "red" }}>{error}</p>
+      <p className='login-footnote' style={{ color: "red" }}>
+        {error}
+      </p>
     </div>
   );
 }

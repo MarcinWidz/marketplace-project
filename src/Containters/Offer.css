@@ -1,0 +1,17 @@
+.clicked-offer {
+  display: flex;
+}
+
+.clicked-img {
+  width: 800px;
+  height: 600px;
+  object-fit: contain;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.clicked-details-div {
+  background-color: white;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}

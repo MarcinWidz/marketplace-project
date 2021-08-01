@@ -35,19 +35,27 @@ const Offer = () => {
         alt={data.product_name}
       />
       <div className='clicked-details-div'>
-        <p>{data.product_price}</p>
+        <p className='clicked-price'>{data.product_price}€</p>
         <ul>
           {data.product_details.map((elem, index) => {
             const keys = Object.keys(elem);
             return (
-              <li key={index}>
-                <span>{keys[0]}</span>
-                <span> : </span>
-                <span>{elem[keys[0]]}</span>
-              </li>
+              <div className='upper'>
+                <li key={index}>
+                  <div className='clicked-details-left'>
+                    <span>{keys[0]}</span>
+                    <span> : </span>
+                  </div>
+                  <span>{elem[keys[0]]}</span>
+                </li>
+              </div>
             );
           })}
         </ul>
+        <li className='clicked-name'>{data.product_name}</li>
+        <li className='clicked-description'>{data.product_description}</li>
+        <li className='clicked-user'>{data.owner.account.username}</li>
+        <button className='clicked-buy'>Acheter</button>
       </div>
     </div>
   );

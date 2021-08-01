@@ -19,6 +19,9 @@
   border: solid 2px #2cb1ba;
   border-radius: 3px;
 }
+.header-item-div li {
+  text-decoration: inherit;
+}
 
 li {
   list-style-type: none;
@@ -35,4 +38,9 @@ li {
 }
 .header-cta-div:hover {
   cursor: pointer;
+}
+
+.sell-btn {
+  text-decoration: inherit;
+  color: white;
 }

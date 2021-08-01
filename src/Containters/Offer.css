@@ -14,4 +14,59 @@
   background-color: white;
   margin-top: 30px;
   margin-bottom: 50px;
+  margin-right: 50px;
+  padding: 15px;
+  width: 400px;
+  position: relative;
+}
+
+.clicked-price {
+  font-size: 36px;
+  color: #2cb1ba;
+}
+
+.clicked-details-div ul {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: solid 1px #999;
+}
+
+.clicked-details-div ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clicked-details-div ul li span {
+  text-align: right;
+}
+.clicked-details-left {
+  color: #999;
+}
+
+.clicked-name {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.clicked-description {
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.clicked-buy {
+  margin: 0 auto;
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  font-size: 14px;
+  padding: 10px;
+  width: 300px;
+  background-color: #2cb1ba;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.clicked-buy:hover {
+  cursor: pointer;
 }

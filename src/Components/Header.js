@@ -56,12 +56,12 @@ function Header({
           </Link>
         ) : (
           <>
-            <Link to='/user/signup'>
+            <Link style={{ textDecoration: "none" }} to='/user/signup'>
               <div className='header-item-div'>
                 <li>S'inscrire</li>
               </div>
             </Link>
-            <Link to='/user/login'>
+            <Link style={{ textDecoration: "none" }} to='/user/login'>
               <div className='header-item-div'>
                 <li>Se Connecter</li>
               </div>
@@ -69,7 +69,9 @@ function Header({
           </>
         )}
         <div className='header-cta-div'>
-          <li>Vends tes Articles</li>
+          <Link className='sell-btn' to='/user/login'>
+            <li>Vends tes Articles</li>
+          </Link>
         </div>
       </ul>
     </div>

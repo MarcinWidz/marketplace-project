@@ -69,7 +69,7 @@ function Header({
           </>
         )}
         <div className='header-cta-div'>
-          <Link className='sell-btn' to='/user/login'>
+          <Link className='sell-btn' to='/offer/publish'>
             <li>Vends tes Articles</li>
           </Link>
         </div>

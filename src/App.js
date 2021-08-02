@@ -6,6 +6,7 @@ import Home from "./Containters/Home";
 import Header from "./Components/Header";
 import Login from "./Containters/Login";
 import Signup from "./Containters/Signup";
+import Publish from "./Containters/Publish";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -53,6 +54,9 @@ export default function App() {
         setSearch={setSearch}
       />
       <Switch>
+        <Route exact path='/offer/publish'>
+          <Publish userToken={userToken} />
+        </Route>
         <Route path='/offer/:id'>
           <Offer />
         </Route>

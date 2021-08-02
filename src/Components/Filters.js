@@ -30,7 +30,6 @@ function Filters({
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}&priceMin=${priceMin}&priceMax=${priceMax}&sort=${sort}`
         );
-        console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -58,7 +57,7 @@ function Filters({
   };
 
   return isLoading === true ? (
-    <div style={{ color: "red" }}>"Loading..."</div>
+    <div>"Loading..."</div>
   ) : (
     <div>
       <div className='filters-search-flex'>

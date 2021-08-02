@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Home.css";
 
-function Home({ data, setData }) {
+function Home({ data, setData, userToken }) {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +28,15 @@ function Home({ data, setData }) {
         <div className='center'>
           <div className='cta-div'>
             <h1>Prêts à faire du tri dans vos placards?</h1>
-            <button>Commencer à Vendre</button>
+            {userToken ? (
+              <Link to='/offer/publish'>
+                <button>Commencer à Vendre</button>
+              </Link>
+            ) : (
+              <Link to='/user/login'>
+                <button>Commencer à Vendre</button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

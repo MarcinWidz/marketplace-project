@@ -49,9 +49,9 @@ function Header({
           />
         </div>
         {userToken ? (
-          <Link to='/user/login'>
+          <Link style={{ textDecoration: "none" }} to='/user/login'>
             <div className='header-item-div'>
-              <button onClick={() => setUser(null)}>Se déconnecter</button>
+              <li onClick={() => setUser(null)}>Se déconnecter</li>
             </div>
           </Link>
         ) : (
@@ -69,9 +69,15 @@ function Header({
           </>
         )}
         <div className='header-cta-div'>
-          <Link className='sell-btn' to='/offer/publish'>
-            <li>Vends tes Articles</li>
-          </Link>
+          {userToken ? (
+            <Link className='sell-btn' to='/offer/publish'>
+              <li>Vends tes Articles</li>
+            </Link>
+          ) : (
+            <Link className='sell-btn' to='/user/login'>
+              <li>Vends tes Articles</li>
+            </Link>
+          )}
         </div>
       </ul>
     </div>

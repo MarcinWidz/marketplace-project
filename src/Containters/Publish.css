@@ -1,0 +1,31 @@
+.publish-div {
+  width: 1250px;
+  margin: 0 auto;
+}
+
+.publish-photo-zone {
+  width: 1250px;
+  height: 250px;
+  background-color: white;
+  margin-bottom: 30px;
+}
+.publish-title-zone {
+  width: 1250px;
+  height: 250px;
+  background-color: white;
+  margin-bottom: 30px;
+}
+
+.publish-details-zone {
+  width: 1250px;
+  height: 250px;
+  background-color: white;
+  margin-bottom: 30px;
+}
+
+.publish-price-zone {
+  width: 1250px;
+  height: 250px;
+  background-color: white;
+  margin-bottom: 30px;
+}

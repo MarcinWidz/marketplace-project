@@ -61,7 +61,7 @@ export default function App() {
           <Offer />
         </Route>
         <Route exact path='/'>
-          <Home data={data} setData={setData} />
+          <Home data={data} setData={setData} userToken={userToken} />
         </Route>
         <Route path='/user/login'>
           <Login setUser={setUser} />

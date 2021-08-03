@@ -61,7 +61,7 @@ export default function App() {
           <Publish userToken={userToken} />
         </Route>
         <Route path='/offer/:id'>
-          <Offer />
+          <Offer userToken={userToken} />
         </Route>
         <Route exact path='/'>
           <Home data={data} setData={setData} userToken={userToken} />

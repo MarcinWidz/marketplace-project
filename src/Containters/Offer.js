@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Offer.css";
 
-const Offer = () => {
+const Offer = ({ userToken }) => {
   const { id } = useParams();
 
   const [data, setData] = useState();
@@ -56,14 +56,24 @@ const Offer = () => {
         <li className='clicked-description'>{data.product_description}</li>
         <li className='clicked-user'>{data.owner.account.username}</li>
 
-        <Link
-          to={{
-            pathname: "/payment",
-            state: { title: data.product_name, price: data.product_price },
-          }}
-        >
-          <button className='clicked-buy'>Acheter</button>
-        </Link>
+        {userToken ? (
+          <Link
+            to={{
+              pathname: "/payment",
+              state: {
+                title: data.product_name,
+                price: data.product_price,
+                userToken: userToken,
+              },
+            }}
+          >
+            <button className='clicked-buy'>Acheter</button>
+          </Link>
+        ) : (
+          <Link to='/user/login'>
+            <button className='clicked-buy'>Acheter</button>
+          </Link>
+        )}
       </div>
     </div>
   );

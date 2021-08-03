@@ -6,10 +6,14 @@ import { loadStripe } from "@stripe/stripe-js";
 function Payment() {
   const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
   const location = useLocation();
-  console.log(location.state);
+  console.log("state===>", location.state.title);
   return (
     <Elements stripe={stripePromise}>
-      <CheckoutForm />
+      <CheckoutForm
+        name={location.state.name}
+        price={location.state.price}
+        userToken={location.state.userToken}
+      />
     </Elements>
   );
 }

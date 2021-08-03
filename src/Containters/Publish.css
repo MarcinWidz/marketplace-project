@@ -8,7 +8,26 @@
   height: 250px;
   background-color: white;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.publish-photo-zone-dashed {
+  border: dashed 1px #ebedee;
+  width: 1200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropzone {
+  width: 1200px;
+  height: 200px;
+  border: 1px solid #0ab1ba;
+}
+
 .publish-title-zone {
   width: 1250px;
   height: 250px;
@@ -16,11 +35,63 @@
   margin-bottom: 30px;
 }
 
+.publish-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #ebedee;
+  height: 70px;
+  padding: 50px;
+}
+
+.publish-title input {
+  border: none;
+  height: 40px;
+  width: 630px;
+  border-bottom: solid 1px #ebedee;
+  outline: none;
+  font-size: 18px;
+}
+
+.publish-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 50px;
+}
+
+.publish-description input {
+  border: none;
+  height: 40px;
+  width: 630px;
+  border-bottom: solid 1px #ebedee;
+  outline: none;
+  font-size: 18px;
+}
+
 .publish-details-zone {
   width: 1250px;
-  height: 250px;
   background-color: white;
   margin-bottom: 30px;
+}
+
+.publish-details-zone div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  border-bottom: solid 1px #ebedee;
+  padding: 50px;
+}
+
+.publish-details-zone input {
+  border: none;
+  height: 40px;
+  width: 630px;
+  border-bottom: solid 1px #ebedee;
+  outline: none;
+  font-size: 18px;
 }
 
 .publish-price-zone {
@@ -28,4 +99,40 @@
   height: 250px;
   background-color: white;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.publish-price-zone input {
+  border: none;
+  height: 40px;
+  width: 630px;
+  border-bottom: solid 1px #ebedee;
+  outline: none;
+  font-size: 18px;
+}
+
+.publish-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.publish-btn-div {
+  position: relative;
+  width: 1250px;
+  height: 100px;
+}
+
+.publish-btn {
+  background-color: #0ab1ba;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  font-size: 18px;
+  padding: 15px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }

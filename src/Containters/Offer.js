@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Offer.css";
@@ -55,7 +55,14 @@ const Offer = () => {
         <li className='clicked-name'>{data.product_name}</li>
         <li className='clicked-description'>{data.product_description}</li>
         <li className='clicked-user'>{data.owner.account.username}</li>
-        <button className='clicked-buy'>Acheter</button>
+        <Link
+          to='/payment'
+          title={data.title}
+          price={data.price}
+          id={data.owner}
+        >
+          <button className='clicked-buy'>Acheter</button>
+        </Link>
       </div>
     </div>
   );

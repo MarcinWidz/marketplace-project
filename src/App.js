@@ -8,11 +8,9 @@ import Login from "./Containters/Login";
 import Signup from "./Containters/Signup";
 import Publish from "./Containters/Publish";
 import Footer from "./Components/Footer";
-import CheckoutForm from "./Components/CheckoutForm";
+import Payment from "./Containters/Payment";
 import Cookies from "js-cookie";
 import "./App.css";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,10 +25,6 @@ export default function App() {
   const [title, setTitle] = useState("");
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
-
-  const stripePromise = loadStripe(
-    "pk_test_51JKMRNLaMPMxj9Gg8UHUDuciNjoRJdynBJ1qN3CO6Wf5kXofziTcT07T7Teb5RZvjXXeIDVhZbtW2zdX6Y9UKi5b00To7kd2Q2"
-  );
 
   const setUser = (token) => {
     if (token) {
@@ -79,9 +73,7 @@ export default function App() {
           <Signup setUser={setUser} />
         </Route>
         <Route path='/payment'>
-          <Elements stripe={stripePromise}>
-            <CheckoutForm userToken={userToken} />
-          </Elements>
+          <Payment />
         </Route>
       </Switch>
       <Footer />

@@ -55,11 +55,12 @@ const Offer = () => {
         <li className='clicked-name'>{data.product_name}</li>
         <li className='clicked-description'>{data.product_description}</li>
         <li className='clicked-user'>{data.owner.account.username}</li>
+
         <Link
-          to='/payment'
-          title={data.title}
-          price={data.price}
-          id={data.owner}
+          to={{
+            pathname: "/payment",
+            state: { title: data.product_name, price: data.product_price },
+          }}
         >
           <button className='clicked-buy'>Acheter</button>
         </Link>

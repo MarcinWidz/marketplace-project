@@ -4,6 +4,7 @@ import axios from "axios";
 function CheckoutForm({ price, userToken, title }) {
   const stripe = useStripe();
   const elements = useElements();
+  console.log(price);
 
   const handleSubmit = async (event) => {
     try {
